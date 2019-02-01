@@ -11,7 +11,7 @@ Relevant scripts:
 convert_augustus_gff_and_fasta_to_gbk.py
 ```
 
-**Step 1.** Assemble your genome(s) in whatever way seems best to you. [SPAdes](http://cab.spbu.ru/software/spades/) seems to do well with haploid fungal genomes. Don't forget to evaluate with [BUSCO](https://busco.ezlab.org/) and [QUAST](http://bioinf.spbau.ru/quast).
+**Step 1.** Assemble your genome(s) in whatever way seems best to you. [SPAdes](http://cab.spbu.ru/software/spades/) seems to do well with haploid fungal genomes. Don't forget to evaluate with [BUSCO](https://busco.ezlab.org/) and [QUAST](http://bioinf.spbau.ru/quast). You are really going to need at least decent coverage paired-end short reads to assemble a reasonable genome. Long reads are great, mate pairs are great, high coverage is great.
 
 **Step 1a (optional).** Run [RepeatMasker](http://www.repeatmasker.org/) to identify transposable elements and mask repetitve regions for gene calling.
 
@@ -67,7 +67,7 @@ convert_augustus_gff_and_fasta_to_gbk.py [genome.fa] [genes_renamed.gff] [prot_r
 remove_geneless_scaffs.py [genome.gbk] > [genome_clean.gbk]
 ```
 
-**Step 6**. Run antiSMASH. I don't recommend using their ClusterFinder algorithm. The specific options are up to you, but I recommend you run it with full output options so you can visualize clusters using their html output if you want. The ClusterBlast/KnownClusterBlast output is also helpful. Our 2018 paper was done with antiSMASH version 3, and there's now a version 4, so I can't speak to differences there.
+**Step 6**. Run antiSMASH. I don't recommend using their ClusterFinder algorithm. The specific options are up to you, but I recommend you run it with full output options so you can visualize clusters using their html output if you want. The ClusterBlast/KnownClusterBlast output is also helpful. Our paper was done with antiSMASH version 3, and there's now a version 4, so I can't speak to differences there.
 
 **Step 7.** Format your cluster output data and explore your results.
 
