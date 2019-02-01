@@ -67,7 +67,7 @@ convert_augustus_gff_and_fasta_to_gbk.py [genome.fa] [genes_renamed.gff] [prot_r
 remove_geneless_scaffs.py [genome.gbk] > [genome_clean.gbk]
 ```
 
-**Step 6**. Run antiSMASH. I don't recommend using their ClusterFinder algorithm. The specific options are up to you, but I recommend you run it with full output options so you can visualize clusters using their html output if you want. The ClusterBlast/KnownClusterBlast output is also helpful. Our 2018 paper was done with antiSMASH version 3, and there's now a version 4, so I can't speak to differences there.
+**Step 6**. Run antiSMASH. I don't recommend using their ClusterFinder algorithm. The specific options are up to you, but I recommend you run it with full output options so you can visualize clusters using their html output if you want. The ClusterBlast/KnownClusterBlast output is also helpful. Our paper was done with antiSMASH version 3, and there's now a version 4, so I can't speak to differences there.
 
 **Step 7.** Format your cluster output data and explore your results.
 
