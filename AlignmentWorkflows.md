@@ -43,8 +43,8 @@ bedtools coverage -sorted -a [ref_genome_10kb_windows.txt] -b [alignment.sorted.
 
 **Step 3.** Explore your results.
 
-Look at the coverage of all of the reference genome SMGCs in the gene coverage windows. Any time there is less than 100% coverage of a SMGC gene, it's worth investigating. Visualizing the alignments in an alignment browser like IGV can be very helpful for figuring out exactly what's going on for each non-100% coverage case.
+Look at the coverage of all of the reference genome SMGCs in the gene coverage windows. Any time there is less than 100% coverage of a SMGC gene, it's worth investigating. Visualize the alignments around each non-100% coverage gene in an alignment browser like [IGV](http://software.broadinstitute.org/software/igv/). This is be very helpful for figuring out exactly what's going on for each non-100% coverage case.
 
 # Identifying SNPs and indels
 
-Briefly, use the GATK pipeline and genotype all your strains together. Use SnpEFF for determining what kind of impact the variants you find will have. Details under development.
+Briefly, use the [GATK pipeline](https://software.broadinstitute.org/gatk/) and genotype all your strains together (the more strains, the better your power). Use [SnpEFF](http://snpeff.sourceforge.net/) for determining what kind of impact the variants you find will have. Details under development.
