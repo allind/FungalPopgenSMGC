@@ -29,7 +29,7 @@ create_gene_bed.py [ref_genome.gff] > [genes.bed]
 bedtools coverage -sorted -a [genes.bed] -b [alignment.sorted.deduped.bam] > [gene_coverage.txt]
 ```
 
-The output for this will be tab delimited: "Chromosome start_coord end_coord genename reads_mapping_to_region bases_covered gene_length percentage_of_bases_covered"
+The output for this will be tab delimited: "Chromosome, start_coord, end_coord genename, reads_mapping_to_region, bases_covered, gene_length, percentage_of_bases_covered"
 
 
 I also recommend you run bedtools coverage on the entire genome. This helps you determine if any gene losses or cluster losses are part of a larger deletion or not.
