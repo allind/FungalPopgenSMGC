@@ -21,7 +21,7 @@ This is a good time to evaluate your sequencing data. Check out picardtools Coll
 
 **Step 2.** Determine gene coverage using bedtools.
 
-The purpose of this is to determine which genes are or are present in the isolate you've sequenced. You will need [bedtools](https://bedtools.readthedocs.io/en/latest/) for this.
+The purpose of this is to determine which genes are or are not present in the isolate you've sequenced. You will need [bedtools](https://bedtools.readthedocs.io/en/latest/) for this.
 
 Create a bed file for all the genes in the reference genome. This just needs to be "scaffold\tstart_coord\tend_coord\tgenename". I have a script that will do this for certain GFFs, but yours might be formatted differently.
 ```
