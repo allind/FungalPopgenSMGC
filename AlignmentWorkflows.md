@@ -1,6 +1,6 @@
 # Identifying variants using a reference genome and short read alignments
 
-This workflow is intended to use a reference genome and short read alignments to identify gene cluster loss, gene loss, and smaller variants like SNPs and indels within strains of a fungal genome. Everything here is done relative to a reference genome. This approach can't identify novel SMGCs or changes in SMGC genomic location (see AssemblyWorkflow for that). This is **orders of magnitude** more sensitive than assembly for gene cluster loss and gene loss, however, so I strongly recommend you use both approaches.
+This workflow is intended to use a reference genome and short read alignments to identify gene cluster loss, gene loss, and smaller variants like SNPs and indels within strains of a fungal species. Everything here is done relative to a reference genome. This approach can't identify novel SMGCs or changes in SMGC genomic location (see AssemblyWorkflow for that). This is **orders of magnitude** more sensitive than assembly for gene cluster loss and gene loss, however, so I strongly recommend you use both approaches.
 
 # Identifying large structural variants like gene cluster, whole gene, and partial gene deletion
 
