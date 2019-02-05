@@ -34,14 +34,14 @@ makeblastdb -dbytpe prot -in [ref_prots.fa]
 makeblastdb -dbtype prot -in [prot.fa]
 blastp -query [prot.fa] -db [ref_prots.fa] -outfmt 6 -num_threads [desired_cores] -out [strain_vs_ref_prots.bls]
 blastp -query [ref_prots.fa] -db [prot.fa] -outfmt 6 -num_threads [desired_cores] -out [ref_prots_vs_strain.bls]
-reciprocal_best_blast.py [strain_vs_ref_prots.bls] [ref_prots_vs_strain.bls] 1 2 12 high > [strain_reference_rbh.txt]
+reciprocal_best_blast.py [strain_vs_ref_prots.bls] [ref_prots_vs_strain.bls] 1 2 12 high [strain_reference_rbh.txt]
 ```
 
 **Step 4.** Use the reciprocal best blast output to rename uninformative Augustus gene names.
 
 Generate new names
 ```
-rename_genes_blast.py [strainname] [cds.fa] [genes.gff] > [genenames.txt]
+rename_genes_blast.py [strainname] [cds.fa] [genes.gff] [strain_reference_rbh.txt] > [genenames.txt]
 ```
 
 Rename GFF (this only changes things on the gene feature line, not mRNA, exon, CDS, etc - I only do this so I can generate an ordered list of genes later on)
