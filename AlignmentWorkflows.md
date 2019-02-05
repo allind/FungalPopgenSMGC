@@ -1,6 +1,6 @@
 # Identifying variants using a reference genome and short read alignments
 
-This workflow is intended to use a reference genome and short read alignments to identify gene cluster loss, gene loss, and smaller variants like SNPs and indels within strains of a fungal genome. Everything here is done relative to a reference genome. This approach can't identify novel SMGCs or changes in SMGC genomic location (see AssemblyWorkflow for that). This is **orders of magnitude** more sensitive than assembly for gene cluster loss and gene loss, however, so I strongly recommend you use both approaches.
+This workflow is intended to use a reference genome and short read alignments to identify gene cluster loss, gene loss, and smaller variants like SNPs and indels within strains of a fungal species. Everything here is done relative to a reference genome. This approach can't identify novel SMGCs or changes in SMGC genomic location (see AssemblyWorkflow for that). This is **orders of magnitude** more sensitive than assembly for gene cluster loss and gene loss, however, so I strongly recommend you use both approaches.
 
 # Identifying large structural variants like gene cluster, whole gene, and partial gene deletion
 
@@ -21,7 +21,7 @@ This is a good time to evaluate your sequencing data. Check out picardtools Coll
 
 **Step 2.** Determine gene coverage using bedtools.
 
-The purpose of this is to determine which genes are or are present in the isolate you've sequenced. You will need [bedtools](https://bedtools.readthedocs.io/en/latest/) for this.
+The purpose of this is to determine which genes are or are not present in the isolate you've sequenced. You will need [bedtools](https://bedtools.readthedocs.io/en/latest/) for this.
 
 Create a bed file for all the genes in the reference genome. This just needs to be "scaffold\tstart_coord\tend_coord\tgenename". I have a script that will do this for certain GFFs, but yours might be formatted differently.
 ```
@@ -29,7 +29,7 @@ create_gene_bed.py [ref_genome.gff] > [genes.bed]
 bedtools coverage -sorted -a [genes.bed] -b [alignment.sorted.deduped.bam] > [gene_coverage.txt]
 ```
 
-The output for this will be tab delimited: "Chromosome start_coord end_coord genename reads_mapping_to_region bases_covered gene_length percentage_of_bases_covered"
+The output for this will be tab delimited: "Chromosome, start_coord, end_coord genename, reads_mapping_to_region, bases_covered, gene_length, percentage_of_bases_covered"
 
 
 I also recommend you run bedtools coverage on the entire genome. This helps you determine if any gene losses or cluster losses are part of a larger deletion or not.
@@ -43,8 +43,8 @@ bedtools coverage -sorted -a [ref_genome_10kb_windows.txt] -b [alignment.sorted.
 
 **Step 3.** Explore your results.
 
-Look at the coverage of all of the reference genome SMGCs in the gene coverage windows. Any time there is less than 100% coverage of a SMGC gene, it's worth investigating. Visualizing the alignments in an alignment browser like IGV can be very helpful for figuring out exactly what's going on for each non-100% coverage case.
+Look at the coverage of all of the reference genome SMGCs in the gene coverage windows. Any time there is less than 100% coverage of a SMGC gene, it's worth investigating. Visualize the alignments around each non-100% coverage gene in an alignment browser like [IGV](http://software.broadinstitute.org/software/igv/). This is be very helpful for figuring out exactly what's going on for each non-100% coverage case.
 
 # Identifying SNPs and indels
 
-Briefly, use the GATK pipeline and genotype all your strains together. Use SnpEFF for determining what kind of impact the variants you find will have. Details under development.
+Briefly, use the [GATK pipeline](https://software.broadinstitute.org/gatk/) and genotype all your strains together (the more strains, the better your power). Use [SnpEFF](http://snpeff.sourceforge.net/) for determining what kind of impact the variants you find will have. Details under development.
